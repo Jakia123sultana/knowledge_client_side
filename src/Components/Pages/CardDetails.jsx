@@ -5,7 +5,7 @@ import {IoSend} from "react-icons/io5";
 import {FaRegComment} from "react-icons/fa";
 import {BiSolidLike} from "react-icons/bi";
 import {FiTag} from "react-icons/fi";
-import {useContext, useEffect, useState} from "react";
+import {useContext, useState} from "react";
 import {AuthContext} from "../../Provider/AuthProvider";
 export default function CardDetails() {
   const data = useLoaderData();
