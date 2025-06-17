@@ -1,4 +1,4 @@
-import {use, useContext} from "react";
+import {use} from "react";
 
 import {useNavigate} from "react-router";
 import Swal from "sweetalert2";
@@ -31,7 +31,7 @@ export default function AddRoommate() {
         if (data.insertedId) {
           console.log("added successfully");
           Swal.fire({
-            title: "Coffee added successfully!",
+            title: "Added successfully!",
             icon: "success",
             draggable: true,
           }).then(() => {
