@@ -55,7 +55,7 @@ export default function CardDetails() {
   };
   return (
     <>
-      <div className="card bg-base-100 w-160 shadow-sm mt-20 ml-40">
+      <div className="card bg-gray-100 w-160 shadow-sm mt-20 ml-40 mb-20">
         <figure>
           <img src={news.author_photo} className="w-86 h-4/5" />
         </figure>
