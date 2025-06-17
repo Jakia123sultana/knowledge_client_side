@@ -1,5 +1,5 @@
 import { NavLink } from 'react-router';
-
+import logo from '../../assets/knowledgeSharing.jpg'
 import { FaFacebook } from "react-icons/fa";
 import { BsGithub } from "react-icons/bs";
 import { GiTBrick } from 'react-icons/gi';
@@ -21,9 +21,13 @@ export default function Footer() {
       );
   return (
     <div className='bg-[#0F0F0F] text-white py-10 px-12'>
-     <div>
-     
+     <div >
+      
       <div>
+        <div className='flex gap-5 justify-center'>
+          <img src={logo}alt="" className="rounded-full w-12 h-12"/>
+               <a className="btn btn-ghost text-xl">Knowledge Sharing</a>
+        </div>
         <ul className='flex gap-14 justify-center items-center pt-4 pb-4'>
             {links}
         </ul>
