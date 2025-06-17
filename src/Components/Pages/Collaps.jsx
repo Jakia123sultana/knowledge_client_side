@@ -5,22 +5,22 @@ export default function Collaps() {
     <div class="collapse collapse-arrow border border-blue-300">
       <input type="radio" name="my-accordion-2" />
       <div class="collapse-title text-xl font-medium">
-      How do I list a room for rent?
+       Is there category based filtering?
       </div>
       <div class="collapse-content">
         <p>
-          Simply sign in ,navigate to the Post Listing page,fill all information and then submit.
+         Yes ...
           </p>
       </div>
     </div>
     <div class="collapse collapse-arrow border  border-blue-300">
       <input type="radio" name="my-accordion-2" />
       <div class="collapse-title text-xl font-medium">
-        Can I delete my listing?
+        Can I delete my post?
       </div>
       <div class="collapse-content">
         <p>
-         Yes! From the "My Listings" page.
+         Yes! From the "My Post" page.
         </p>
       </div>
     </div>

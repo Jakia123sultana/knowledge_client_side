@@ -19,7 +19,7 @@ const JobCard = ({item}) => {
  </h1>
  <div className='mt-4 flex flex-wrap gap-2 text-sm'>
   {
-    tags?.map(tag=>{
+    tags?.map?.(tag=>{
       return (
         <span className='text-gray-500 flex items-center gap-1 bg-gray-100 px-4 py-1 rounded-full'>
         <FiTag className="text-gray-400"/>{tag}</span>

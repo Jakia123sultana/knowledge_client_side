@@ -8,7 +8,7 @@ export default function PostCard({item}) {
 console.log(item);
   return (
     <>
-     <div className="card bg-base-100 w-90 h-90 shadow-sm">
+     <div className="card bg-gray-100 w-90 h-90 shadow-sm">
   <figure>
     <img
       src={item.author_photo}
@@ -21,7 +21,7 @@ console.log(item);
          <p className="text-xl font-bold mb-4 ">{item.title}</p>
    
       <p className="text-lg font-semibold opacity-80">{item.category}</p>
-   
+     <p className="text-lg font-semibold opacity-80">{item.author_name}</p>
     </div>
       <div className="card-actions ">
  
