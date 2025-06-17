@@ -21,17 +21,8 @@ export default function CardDetails() {
 
   const [likeCount, setLikeCount] = useState(0);
   console.log(likeCount);
-  //   console.log(news)
-  //  useEffect(() => {
 
-  //     const cardDetails = data.find((singleCard) => singleCard._id == _id);
-  //     setNews(cardDetails);
-  //     // if(cardDetails?.likes!==undefined){
-  //     //   setLikeCount(cardDetails.likes)
-  //     }, [data, _id])
   const handleLike = async () => {
-    // if (user.email === news.author_email) return
-
     await fetch(
       `https://knowledge-server-side-chi.vercel.app/knowledges/like/${news._id}`,
       {
