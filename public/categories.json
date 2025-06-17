@@ -1,0 +1,46 @@
+[
+  {
+    "id": 0,
+    "name": "All News"
+  },
+  {
+    "id": 1,
+    "name": "Health"
+  },
+  {
+    "id": 2,
+    "name": "Travel"
+  },
+  {
+    "id": 3,
+    "name": "Technology"
+  },
+  {
+    "id": 4,
+    "name": "Finance"
+  },
+  {
+    "id": 5,
+    "name": "Career"
+  },
+  {
+    "id": 6,
+    "name": "Programming"
+  },
+  {
+    "id": 7,
+    "name": "Mental Health"
+  },
+  {
+    "id": 8,
+    "name": "Environment"
+  },
+  {
+    "id": 9,
+    "name": "Design"
+  },
+  {
+    "id": 10,
+    "name": "Education"
+  }
+]
