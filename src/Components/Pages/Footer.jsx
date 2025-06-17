@@ -45,7 +45,7 @@ export default function Footer() {
       <FaLinkedin size={36}/>
       </NavLink>
      </div>
-    <p className='text-center mt-4 opacity-70'> @2025 Your Company Name. All rights reserved.</p>
+    <p className='text-center mt-4 opacity-70'> @2025 Knowledge Share. All rights reserved.</p>
     </div>
   );
 }
