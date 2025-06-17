@@ -4,8 +4,8 @@ import {Link, useLocation, useNavigate} from "react-router";
 import {GoogleAuthProvider, signInWithPopup} from "firebase/auth";
 import {auth} from "../../firebase/firebase.init";
 // import { Helmet } from "react-helmet-async";
-import { AuthContext } from "../../Provider/AuthProvider";
-
+import {AuthContext} from "../../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const SignIn = () => {
   const [error, setError] = useState("");
@@ -23,6 +23,7 @@ const SignIn = () => {
     signIn(email, password)
       .then((result) => {
         const user = result.user;
+        Swal.fire("success", "Login Successfully");
         console.log(user);
         navigate(`${location.state ? location.state : "/"}`);
       })
@@ -48,59 +49,59 @@ const SignIn = () => {
   };
   return (
     <>
-    {/* <Helmet><title>Login Page</title></Helmet> */}
-    <div className="flex justify-center min-h-screen items-center">
-      <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
-        <h2 className="font-semibold text-2xl text-center">
-          Login your account
-        </h2>
-        <form onSubmit={handleLogin} className="card-body">
-          <fieldset className="fieldset">
-            {/* email  */}
-            <label className="label">Email</label>
-            <input
-              name="email"
-              type="email"
-              className="input"
-              placeholder="Email"
-              required
-            />
-            {/* passowrd  */}
-            <label className="label">Password</label>
-            <input
-              name="password"
-              type="password"
-              className="input"
-              placeholder="Password"
-              required
-            />
-            <div>
-              <Link to="/auth/forget" className="link link-hover">Forgot password?</Link>
-            </div>
+      {/* <Helmet><title>Login Page</title></Helmet> */}
+      <div className="flex justify-center min-h-screen items-center">
+        <div className="card bg-base-100 w-full max-w-sm shrink-0 shadow-2xl py-5">
+          <h2 className="font-semibold text-2xl text-center">
+            Login your account
+          </h2>
+          <form onSubmit={handleLogin} className="card-body">
+            <fieldset className="fieldset">
+              {/* email  */}
+              <label className="label">Email</label>
+              <input
+                name="email"
+                type="email"
+                className="input"
+                placeholder="Email"
+                required
+              />
+              {/* passowrd  */}
+              <label className="label">Password</label>
+              <input
+                name="password"
+                type="password"
+                className="input"
+                placeholder="Password"
+                required
+              />
+              <div>
+                <Link to="/auth/forget" className="link link-hover">
+                  Forgot password?
+                </Link>
+              </div>
 
-            {error && <p className="text-red-400 text-xs">{error}</p>}
-           
-            <button type="submit" className="btn btn-neutral mt-4">
-              Login
-            </button>
-            <button
-              onClick={handleLoginWithGoogle}
-              className="btn btn-neutral mt-4"
-            >
-              Login With Google
-            </button>
-            <p className="font-semibold text-center pt-5">
-              Dont’t Have An Account ?{" "}
-              <Link className="text-secondary" to="/register">
-                Register
-              </Link>
-            </p>
-          </fieldset>
-        </form>
+              {error && <p className="text-red-400 text-xs">{error}</p>}
+
+              <button type="submit" className="btn btn-neutral mt-4">
+                Login
+              </button>
+              <button
+                onClick={handleLoginWithGoogle}
+                className="btn btn-neutral mt-4"
+              >
+                Login With Google
+              </button>
+              <p className="font-semibold text-center pt-5">
+                Dont’t Have An Account ?{" "}
+                <Link className="text-secondary" to="/register">
+                  Register
+                </Link>
+              </p>
+            </fieldset>
+          </form>
+        </div>
       </div>
-    
-    </div>
-
     </>
   );
 };
