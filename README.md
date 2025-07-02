@@ -10,4 +10,4 @@ A Knowledge Sharing Platform for students where users can post articles, share k
 - DaisyUI
 - Firebase
 
-  # Live Link : https://assignment011-9d123.web.app/
+  # Live Link : http://knowledgesharing.surge.sh/
