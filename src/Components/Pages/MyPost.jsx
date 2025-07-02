@@ -80,7 +80,8 @@ export default function MyPost() {
     <>
       <div className="p-4">
         <h1 className="text-2xl font-bold mb-4">My Listings</h1>
-        <div className="table  w-full">
+       <div className="overflow-x-auto">
+        <div className="table w-full min-w-[600px]">
           <thead>
             <tr>
               <th>Title</th>
@@ -96,7 +97,7 @@ export default function MyPost() {
               <tr key={post._id}>
                 <td>{post.title}</td>
                 <td>{post.category}</td>
-                <td>${post.content}</td>
+                <td>{post.content}</td>
                 <td>{post.date}</td>
                 <td>
                   <Link to={`/updatedata/${post._id}`}>
@@ -113,6 +114,7 @@ export default function MyPost() {
           </tbody>
         </div>
       </div>
+      </div> 
     </>
   );
 }

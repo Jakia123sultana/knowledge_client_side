@@ -43,9 +43,9 @@ export default function Navbar() {
 
   return (
     <>
-      <div className="navbar bg-base-100 shadow-sm">
+      <div className="navbar bg-base-100 shadow-sm px-4 lg:px-8">
         <div className="navbar-start">
-          <div className="dropdown">
+          <div className="dropdown lg:hidden">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -65,16 +65,25 @@ export default function Navbar() {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content mt-3 z-10 p-2 shadow bg-base-100 rounded-box w-52"
             >
               {links}
+              {user ? (
+                <li><button onClick={handleLogOut} className='btn btn-sm'>Sign Out</button></li>
+              ) : (
+                <>
+                  <li><Link to="/signIn">Login</Link></li>
+                  <li><Link to="/register">Register</Link></li>
+                </>
+              )}
             </ul>
           </div>
           <img src={logo}alt="" className="rounded-full w-12 h-12"/>
-          <a className="btn btn-ghost text-xl">Knowledge Sharing</a>
+          <a className="btn btn-ghost text-base lg:text-xl">Knowledge Sharing</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1 font-semibold text-lg">{links}</ul>
+         <ul className="menu menu-horizontal px-1 font-semibold text-lg hidden lg:flex">{links}</ul>
+
         </div>
         <div className="navbar-end">
           <div className="login-btn flex gap-5">
@@ -82,7 +91,7 @@ export default function Navbar() {
             <div className="navbar-end gap-5">
               {user ? (
               <>
-                     <div className="dropdown dropdown-end">
+                     <div className="dropdown dropdown-end  hidden lg:block">
       <div tabIndex={0} role="button" className="btn btn-ghost btn-circle avatar">
         <div className="w-10 rounded-full">
           <img
@@ -93,7 +102,7 @@ export default function Navbar() {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow">
          <li>
         <NavLink to="/knowledges"> All Articles</NavLink>
       </li>
@@ -110,9 +119,9 @@ export default function Navbar() {
 
               ) : (
                 <>
-                <Link className="btn mr-4" to="/signIn">Login</Link>
+                <Link className="btn mr-4  hidden lg:inline" to="/signIn">Login</Link>
               
-              <Link className="btn" to="/register">Register</Link>
+              <Link className="btn  hidden lg:inline" to="/register">Register</Link>
               </>
               )}
             </div>

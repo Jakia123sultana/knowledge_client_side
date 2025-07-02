@@ -29,7 +29,7 @@ export default function UpdatedData() {
           Swal.fire({
             position: "top-end",
             icon: "success",
-            title: "Coffee updated successfully.",
+            title: "Updated successfully.",
             showConfirmButton: false,
             timer: 1500,
           }).then(() => {

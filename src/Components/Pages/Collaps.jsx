@@ -27,10 +27,10 @@ export default function Collaps() {
     <div class="collapse collapse-arrow border  border-blue-300">
       <input type="radio" name="my-accordion-2" />
       <div class="collapse-title text-xl font-medium">
-        Is my contact info safe? </div>
+        Is my  info safe? </div>
       <div class="collapse-content">
         <p>
-        yes! your contact Info is always save.
+        yes! your  Info is always save.
              </p>
       </div>
     </div>

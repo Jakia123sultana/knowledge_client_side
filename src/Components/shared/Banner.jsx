@@ -10,8 +10,8 @@ export default function Banner() {
       src="https://i.ibb.co/d4nwqZYf/knowledge-Sharing.jpg"
       className="w-full " />
       <div className="absolute left-24 right-14 top-1/3 ">
-      <h1 className="text-4xl font-semibold mb-4 text-white">Share Your Knowledge</h1>
-        <h1 className="text-2xl font-semibold mb-4 text-white"> Discover insightful articles-<br></br> from creators,studentsand professionals <br>
+      <h1 className="text-xl lg:text-4xl font-semibold mb-4 text-white">Share Your Knowledge</h1>
+        <h1 className="text-xl lg:text-2xl font-semibold mb-4 text-white"> Discover insightful articles-<br></br> from creators,studentsand professionals <br>
         </br> Professional and the globe.</h1>
         <Link to="/knowledges"><button className="btn rounded-2xl px-8 ">Explore Articles</button></Link>
         </div> 
@@ -25,8 +25,8 @@ export default function Banner() {
       src="https://i.ibb.co/GQ4PHLd8/reactjs.jpg"
       className="w-full" />
        <div className="absolute left-24 right-14 top-1/3 ">
-      <h1 className="text-4xl font-semibold mb-4 text-white">Share Your Knowledge</h1>
-        <h1 className="text-2xl font-semibold mb-4 text-white"> Discover insightful articles-<br></br> from creators,studentsand professionals <br>
+      <h1 className="text-xl lg:text-4xl font-semibold mb-4 text-white">Share Your Knowledge</h1>
+        <h1 className="text-xl lg:text-2xl font-semibold mb-4 text-white"> Discover insightful articles-<br></br> from creators,studentsand professionals <br>
         </br> Professional and the globe.</h1>
         <Link to="/knowledges"><button className="btn rounded-2xl px-8 ">Explore Articles</button></Link>
         </div> 

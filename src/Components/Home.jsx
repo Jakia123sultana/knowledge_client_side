@@ -27,10 +27,10 @@ export default function Home() {
         <Category categoriesdata={categoriesdata} />
       </div>
       <div className="lg:flex justify-between gap-4 pb-20">
-        <div className="w-2/5 mb-20">
+        <div className="w-full lg:w-2/5 mb-10 lg:mb-20">
           <TopContributors />
         </div>
-        <div className="w-1/2 ">
+        <div className="w-full lg:w-1/2">
           <Collaps />
         </div>
       </div>

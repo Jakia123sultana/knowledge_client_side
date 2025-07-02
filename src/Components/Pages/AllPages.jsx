@@ -19,23 +19,44 @@ export default function AllPages() {
     setArticles(data);
   };
   return (
-    <>
-      <main className="w-11/12 mx-auto my-3  grid grid-cols-12 gap-5 mt-12">
-        <aside className="col-span-3 sticky top-0 h-fit">
-          <LeftAside categoriesdata={allArticles} onFilter={filterArticles} />
-        </aside>
-        <section className="main col-span-6">
-          <div className="flex flex-col gap-8">
-            {articles.map((item) => (
-              <JobCard item={item} />
-            ))}
-          </div>
-        </section>
-        <aside className="col-span-3 sticky top-0 h-fit">
-          <RightAside />
-        </aside>
-      </main>
-    </>
+    // <>
+    //   <main className="w-11/12 mx-auto my-3  grid grid-cols-12 gap-5 mt-12">
+    //     <aside className="col-span-3 sticky top-0 h-fit">
+    //       <LeftAside categoriesdata={allArticles} onFilter={filterArticles} />
+    //     </aside>
+    //     <section className="main col-span-6">
+    //       <div className="flex flex-col gap-8">
+    //         {articles.map((item) => (
+    //           <JobCard item={item} />
+    //         ))}
+    //       </div>
+    //     </section>
+    //     <aside className="col-span-3 sticky top-0 h-fit">
+    //       <RightAside />
+    //     </aside>
+    //   </main>
+    // </>
+<main className="w-11/12 mx-auto my-3 grid grid-cols-1 md:grid-cols-12 gap-5 mt-12">
+  <aside className="col-span-12 md:col-span-3  top-0 h-fit mb-5 md:mb-0">
+    <LeftAside categoriesdata={allArticles} onFilter={filterArticles} />
+  </aside>
+
+  <section className="main col-span-12 md:col-span-6">
+    <div className="flex flex-col gap-8">
+      {articles.map((item) => (
+        <JobCard key={item._id || item.id} item={item} />
+      ))}
+    </div>
+  </section>
+
+  <aside className="col-span-12 md:col-span-3 sticky top-0 h-fit mt-5 md:mt-0">
+    <RightAside />
+  </aside>
+</main>
+
+
+
+
   );
 }
 

@@ -54,101 +54,82 @@ export default function CardDetails() {
     // setShowContact(true)
   };
   return (
-    <>
-      <div className="card bg-gray-100 w-160 shadow-sm mt-20 ml-40 mb-20">
-        <figure>
-          <img src={news.author_photo} className="w-86 h-4/5" />
+   
+
+      <>
+      <div className="bg-gray-100 shadow-sm mt-10 mb-20 max-w-4xl mx-auto rounded-lg overflow-hidden px-4">
+        <figure className="w-full h-80">
+         <img src={news.author_photo} className="w-full h-80 object-cover rounded-t-xl" />
         </figure>
-        <div className="flex gap-8 ml-8 mt-8">
-          <div>
-            {" "}
-            <img
-              src={news.author_photo}
-              alt=""
-              className="rounded-full w-12 h-12"
-            />
-          </div>
+
+        <div className="flex items-center gap-4 mt-6">
+          <img src={news.author_photo} alt="author" className="rounded-full w-12 h-12" />
           <div>
             <p className="text-lg font-bold">{news.author_name}</p>
-            <h1 className="">{news.date}</h1>
+            <p className="text-sm text-gray-600">{news.date}</p>
           </div>
         </div>
-        <div className="card-body">
-          <div className="flex justify-between ">
-            <div className="">
-              <p className="text-lg font-semibold mb-2 opacity-90">
-                {news.title}
-              </p>
 
-              <p className="text-xl font-semibold opacity-80">
-                {news.category}
-              </p>
-              <p className="text-xl font-semibold opacity-80">{news.content}</p>
-            </div>
-          </div>
+        <div className="py-6">
+          <p className="text-lg font-semibold mb-2">{news.title}</p>
+          <p className="text-md font-semibold text-blue-800">{news.category}</p>
+          <p className="text-md mt-2 text-gray-700">{news.content}</p>
         </div>
-        <div className=" flex flex-wrap gap-2 text-sm mb-4">
-          {news.tags?.map?.((tag, idx) => {
-            return (
-              <span
-                key={idx}
-                className="text-gray-500 flex items-center gap-1 bg-gray-100 px-4 py-1 rounded-full"
-              >
-                <FiTag className="text-gray-400" />
-                {tag}
-              </span>
-            );
-          })}
-        </div>
-        <div className="flex justify-between">
-          <div className="flex gap-2">
-            <BiSolidLike size={28} className="ml-8 text-blue-800" />
-            <h1 className="text-lg mt-1">{news.likes}</h1>
-          </div>
-          <div>
-            <p className="mr-8 text-xl ">{news.comments?.length} comments</p>
-          </div>
-        </div>
-        <hr className="text-gray-500 mb-4 mt-4"></hr>
-        <div className="flex justify-between">
-          <div className="flex gap-4">
-            <button
-              onClick={handleLike}
-              className="mr-8 text-lg mb-10 flex items-center gap-4 hover:bg-gray-200 px-6 py-2 rounded-xl"
-            >
-              {" "}
-              <AiOutlineLike size={28} className="ml-8" />
-              <p className="text-xl mt-1">Like</p>
-            </button>
-          </div>
 
-          <div className="">
-            <button
-              onClick={() => {
-                setCommentBox(true);
-              }}
-              className="mr-8 text-lg mb-10 flex items-center gap-2 hover:bg-gray-200 px-6 py-2 rounded-xl"
+        <div className="flex flex-wrap gap-2 text-sm mb-4">
+          {news.tags?.map((tag, idx) => (
+            <span
+              key={idx}
+              className="flex items-center gap-1 bg-gray-200 text-gray-600 px-3 py-1 rounded-full"
             >
-              <FaRegComment size={20} className="  mt-1" />
-              Comment
-            </button>
+              <FiTag /> {tag}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex justify-between items-center text-gray-600 mb-4">
+          <div className="flex items-center gap-2">
+            <BiSolidLike size={24} className="text-blue-700" />
+            <p>{news.likes}</p>
           </div>
+          <p>{comments.length} comments</p>
+        </div>
+
+        <hr className="border-gray-300" />
+
+        <div className="flex justify-between mt-4 flex-wrap gap-4">
+          <button
+            onClick={handleLike}
+            className="flex items-center gap-2 hover:bg-gray-200 px-4 py-2 rounded-lg"
+          >
+            <AiOutlineLike size={20} />
+            <span>Like</span>
+          </button>
+
+          <button
+            onClick={() => setCommentBox(true)}
+            className="flex items-center gap-2 hover:bg-gray-200 px-4 py-2 rounded-lg"
+          >
+            <FaRegComment size={18} />
+            <span>Comment</span>
+          </button>
         </div>
       </div>
+
       {commentBox && (
-        <div className="relative w-160 mb-20 ml-40">
+        <div className="max-w-4xl mx-auto px-4 mb-20 relative">
           <input
             type="text"
             placeholder="Write a comment"
             value={commentText}
             onChange={(e) => setCommentText(e.target.value)}
-            className="w-160 rounded-full py-3 pl-5 pr-12 text-sm focus:outline-none  blue-400 shadow-lg mt-8 hover:bg-gray-100"
+            className="w-full rounded-full py-3 pl-5 pr-12 text-sm shadow-md border focus:outline-none mt-4"
           />
           <button
             onClick={handleComment}
-            className=" absolute top-10  right-6 transform -transtale-y-1/2"
+            className="absolute right-6 top-[1.3rem] text-gray-700"
           >
-            <IoSend size={24} />
+            <IoSend size={22} />
           </button>
         </div>
       )}

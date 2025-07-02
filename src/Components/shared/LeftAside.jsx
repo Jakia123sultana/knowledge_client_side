@@ -12,7 +12,7 @@ const LeftAside = ({categoriesdata,onFilter}) => {
   <div>
       <h2 className="font-bold text-center text-xl text-blue-900">Filtered by Category </h2>
 
-      <div className="grid grid-cols-1 mt-5 gap-3">
+      <div className="grid gap-3 lg:grid-cols-1 grid-cols-4 ">
           <button 
             className={
               "btn  border-0 hover:bg-blue-100 font-bold text-blue-900"
@@ -22,7 +22,7 @@ const LeftAside = ({categoriesdata,onFilter}) => {
            
            <button  key={idx}
             className={
-              "btn  border-0 hover:bg-blue-100 font-bold text-blue-900"
+              "btn   border-0 hover:bg-blue-100 font-bold text-blue-900"
             } onClick={()=> onFilter(category)}>{category}</button>
 
           

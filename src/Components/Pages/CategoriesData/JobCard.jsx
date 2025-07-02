@@ -6,7 +6,7 @@ const JobCard = ({item}) => {
     console.log(item)
     const {tags} = item;
   return (
-   <div className='w-140 mx-auto p-4 rounded-lg shadow font-sans bg-white py-14 px-10'>
+   <div className='w-80 lg:w-140 mx-auto p-4 rounded-lg shadow font-sans bg-white py-14 px-10'>
  <div className='flex items-center space-x-3'>
   <img src={item.author_photo} className='w-10 h-10 rounded-full'/>
   <div>
