@@ -25,7 +25,7 @@ Knowledge Sharing is a React-based platform designed for students to post articl
 - tailwindcss  
 - daisyui  
 - firebase  
-*(Check `package.json` for full list)*
+
 
 ## 🔧 How to Run Locally
 
