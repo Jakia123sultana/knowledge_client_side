@@ -1,21 +1,24 @@
-import {use} from "react";
-import {useLoaderData, useNavigate} from "react-router";
+import { use, useState } from "react";
+import { useLoaderData, useNavigate } from "react-router";
 import Swal from "sweetalert2";
-import {AuthContext} from "../../Provider/AuthProvider";
+import { AuthContext } from "../../Provider/AuthProvider";
+import { ImSpinner9 } from "react-icons/im";
 
 export default function UpdatedData() {
-  const {user} = use(AuthContext);
-  console.log(user.email);
+  const { user } = use(AuthContext);
   const navigate = useNavigate();
   const data = useLoaderData();
-  const {_id, category, content, title, author_photo, tags, date} = data;
+  const { _id, category, content, title, author_photo, tags, date } = data;
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
     const form = e.target;
     const formData = new FormData(form);
     const updateData = Object.fromEntries(formData.entries());
-    console.log(updateData);
+
     fetch(`https://knowledge-server-side-chi.vercel.app/knowledges/${_id}`, {
       method: "PUT",
       headers: {
@@ -25,6 +28,7 @@ export default function UpdatedData() {
     })
       .then((res) => res.json())
       .then((data) => {
+        setIsSubmitting(false);
         if (data.modifiedCount) {
           Swal.fire({
             position: "top-end",
@@ -36,113 +40,129 @@ export default function UpdatedData() {
             navigate("/");
           });
         }
+      })
+      .catch(() => {
+        setIsSubmitting(false);
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: "Something went wrong. Please try again!",
+        });
       });
   };
+
   return (
-    <>
-      <>
-        <div className="p-24">
-          <div className="p-12 text-center space-y-4">
-            <h1 className="text-5xl">Update Your Knowledge</h1>
-            <p>
-              Fill out the form below to post you knowledge sharing.This will
-              help others gain knowledge and know about this.
-            </p>
-          </div>
-          <form onSubmit={handleSubmit}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border  my-12 p-4">
-                <label className="label">Title</label>
-                <input
-                  type="text"
-                  name="title"
-                  defaultValue={title}
-                  className="input w-full"
-                  placeholder="Give your title"
-                  required
-                />
-              </fieldset>
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border  my-12 p-4">
-                <label className="label">Content</label>
-                <textarea
-                  name="content"
-                  defaultValue={content}
-                  className="textarea w-full"
-                  placeholder="Tell us more about the ideas"
-                ></textarea>
-              </fieldset>
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                <label className="label">Category</label>
-                <input
-                  type="text"
-                  name="category"
-                  defaultValue={category}
-                  className="input w-full"
-                  placeholder="Whats category?"
-                />
-              </fieldset>
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                <label className="label">Tags</label>
-                <input
-                  type="text"
-                  name="tags"
-                  defaultValue={tags}
-                  className="input w-full"
-                  placeholder="Tags"
-                />
-              </fieldset>
-
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border my-6 p-4">
-                <label className="label">Date</label>
-                <input
-                  type="date"
-                  name="date"
-                  defaultValue={date}
-                  className="input w-full"
-                  placeholder="Enter the date"
-                />
-              </fieldset>
-
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border my-6 p-4">
-                <label className="label">Photo</label>
-                <input
-                  type="text"
-                  name="author_photo"
-                  className="input w-full"
-                  placeholder="Photo URL"
-                  defaultValue={author_photo}
-                />
-              </fieldset>
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                <label className="label">User Name</label>
-                <input
-                  type="text"
-                  name="author_name"
-                  className="input w-full"
-                  defaultValue={user.displayName}
-                  readOnly
-                />
-              </fieldset>
-              <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
-                <label className="label">Email</label>
-                <input
-                  type="email"
-                  name="author_email"
-                  className="input w-full"
-                  defaultValue={user.email}
-                  readOnly
-                />
-              </fieldset>
-            </div>
-
+    <div className="bg-black min-h-screen  md:p-6 p-2">
+      <div className="p-6 md:p-10 text-center space-y-2 text-white max-w-4xl mx-auto">
+        <h1 className="text-2xl md:text-4xl font-bold">Update Your Knowledge</h1>
+        <p className="text-xs md:text-sm">
+          Fill out the form below to post you knowledge sharing. This will help others gain knowledge and know about this.
+        </p>
+      </div>
+  <form
+  onSubmit={handleSubmit}
+  className="max-w-[90%] mx-auto bg-[rgba(10,25,47,0.76)]  shadow-[#00cde1]/40 rounded-lg p-6 md:p-10"
+>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3 border border-[#00cde">
+            <label className="label text-[#00cde1] font-semibold text-sm">Title</label>
             <input
-              type="submit"
-              className="btn w-full mt-6"
-              value="Upadate Sharing Knowledge"
+              type="text"
+              name="title"
+              defaultValue={title}
+              className="input w-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00cde1] rounded"
+              placeholder="Give your title"
+              required
             />
-          </form>
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">Content</label>
+            <textarea
+              name="content"
+              defaultValue={content}
+              className="textarea w-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00cde1] rounded"
+              placeholder="Tell us more about the ideas"
+              rows={4}
+            ></textarea>
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">Category</label>
+            <input
+              type="text"
+              name="category"
+              defaultValue={category}
+              className="input w-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00cde1] rounded"
+              placeholder="Whats category?"
+            />
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">Tags</label>
+            <input
+              type="text"
+              name="tags"
+              defaultValue={tags}
+              className="input w-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00cde1] rounded"
+              placeholder="Tags"
+            />
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">Date</label>
+            <input
+              type="date"
+              name="date"
+              defaultValue={date}
+              className="input w-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00cde1] rounded"
+              placeholder="Enter the date"
+            />
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">Photo</label>
+            <input
+              type="text"
+              name="author_photo"
+              defaultValue={author_photo}
+              className="input w-full bg-gray-800 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00cde1] rounded"
+              placeholder="Photo URL"
+            />
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">User Name</label>
+            <input
+              type="text"
+              name="author_name"
+              defaultValue={user.displayName}
+              readOnly
+              className="input w-full bg-gray-700 text-white cursor-not-allowed rounded"
+            />
+          </fieldset>
+          <fieldset className="bg-gray-900 rounded-lg p-3 my-3">
+            <label className="label text-[#00cde1] font-semibold text-sm">Email</label>
+            <input
+              type="email"
+              name="author_email"
+              defaultValue={user.email}
+              readOnly
+              className="input w-full bg-gray-700 text-white cursor-not-allowed rounded"
+            />
+          </fieldset>
         </div>
-      </>
-    </>
+
+        <button
+          type="submit"
+          disabled={isSubmitting}
+          className={`btn w-full mt-4  text-white font-bold transition-colors duration-200 border-0 ${
+            isSubmitting ? "bg-gray-400 cursor-not-allowed" : "bg-[#00cde1] hover:bg-[#00a6b8]"
+          } rounded`}
+        >
+          {isSubmitting ? "Updating..." : "Update Sharing Knowledge"}
+        </button>
+
+        {isSubmitting && (
+          <div className="flex justify-center items-center mt-3">
+            <ImSpinner9 className="animate-spin text-[#00cde1] text-3xl" />
+          </div>
+        )}
+      </form>
+    </div>
   );
 }

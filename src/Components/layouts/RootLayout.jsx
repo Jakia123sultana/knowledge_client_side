@@ -10,10 +10,12 @@ import Footer from '../Pages/Footer';
 const RootLayout = () => {
     return (
         <>
-         <div className='mx-auto max-w-7xl'>
+         <div className='mx-auto '>
   
           <NavBar/>
-         <Outlet/>
+       <div className="bg-black max-full">
+  <Outlet />
+</div>
 
     
     </div>

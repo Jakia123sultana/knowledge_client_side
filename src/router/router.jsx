@@ -14,6 +14,7 @@ import CardDetails from "../Components/Pages/CardDetails";
 import PrivateRoute from "./PrivateRoute";
 import ErrorPage from "../Components/Pages/ErrorPage";
 import { knowledgeLoader } from "../knowledgeLoader";
+import AboutUs from "../Components/Pages/AboutUs";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,13 @@ const router = createBrowserRouter([
       {
         path: "/knowledges",
         Component: AllPages,
+        loader:knowledgeLoader
+        // loader: () =>
+          // fetch(`https://knowledge-server-side-chi.vercel.app/knowledges`),
+      },
+         {
+        path: "/aboutus",
+        Component: AboutUs,
         loader:knowledgeLoader
         // loader: () =>
           // fetch(`https://knowledge-server-side-chi.vercel.app/knowledges`),
