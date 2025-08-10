@@ -1,13 +1,45 @@
-# Project Name : knowledge Sharing
+# Knowledge Sharing
 
-## 📦 React Project
-A Knowledge Sharing Platform for students where users can post articles, share knowledge, and engage in discussions through comments. 
+## 📦 Project Overview  
+Knowledge Sharing is a React-based platform designed for students to post articles, share knowledge, and engage in discussions via comments. It encourages collaborative learning and information exchange in a user-friendly interface.
 
-## 🚀 Technology
-- React
-- Html
-- Tailwind CSS
-- DaisyUI
-- Firebase
 
-  # Live Link : https://assignment011-9d123.web.app/
+
+## 🚀 Technologies Used  
+- React  
+- HTML  
+- Tailwind CSS  
+- DaisyUI  
+- Firebase  
+
+## 🌟 Core Features  
+- User registration and authentication with Firebase  
+- Posting and sharing articles  
+- Commenting and discussion threads  
+- Responsive design for desktop and mobile  
+- Intuitive UI with Tailwind CSS and DaisyUI  
+
+## 📦 Dependencies  
+- react  
+- react-dom  
+- tailwindcss  
+- daisyui  
+- firebase  
+
+
+## 🔧 How to Run Locally
+
+1. **Clone the repository:**  
+   ```bash
+   git clone https://github.com/your-username/knowledge-sharing.git
+   cd knowledge-sharing
+   npm install
+   npm run dev
+
+## 🔗 Links
+
+- Live Site: [Knowledge Sharing Live Site](http://knowledgesharing.surge.sh/)  
+- GitHub Repository: [[https://github.com/Jakia123sultana/knowledge_client_side](https://github.com/Jakia123sultana/knowledge_client_side)]
+
+
+
